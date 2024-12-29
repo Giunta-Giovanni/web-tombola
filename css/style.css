@@ -4,3 +4,30 @@ font particular
     font-weight: 400;
     font-style: normal;   
  */
+
+/* BOOTSTRAP DEBUG */
+[class^='container'] {
+    border: 1px dashed black;
+    background-color: lightblue;
+    min-height: 80vh;
+}
+
+[class^='row'] {
+    border: 1px dashed red;
+} 
+
+[class^='col'] {
+    border: 1px solid grey;
+    background-color: aqua;
+    height: 100px;
+}
+
+/* general settings */
+body{
+    background-color: #18a495;
+}
+h1{
+    font-family: "Gochi Hand", serif;
+    font-size: 80px;
+    color: white;
+}
