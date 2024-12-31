@@ -6,21 +6,21 @@ font particular
  */
 
 /* BOOTSTRAP DEBUG */
-[class^='container'] {
+/* [class^='container'] { */
     /* border: 1px dashed black; */
     /* background-color: lightblue; */
-    min-height: 80vh;
-}
+    /* min-height: 80vh; */
+/* } */
 
-[class^='row'] {
+/* [class^='row'] { */
     /* border: 1px dashed red; */
-} 
+/* }  */
 
-[class^='col'] {
+/* [class^='col'] { */
     /* border: 1px solid grey; */
     /* background-color: aqua; */
     /* height: 100px; */
-} 
+/* }  */
 
 /* general settings */
 body{
@@ -55,11 +55,12 @@ padding: 5px 0px;
     font-weight: bold;
   }
 
-.number:active{
+  /* active di debug */
+/* .number:active{
     background-color: #f68da0 ;
     box-shadow: -2px 2px 1px #c82027;
     border: 1px solid #c82027;
-}
+} */
 
 /* parte destra*/
 
@@ -94,9 +95,18 @@ h5{
 }
 
 .btn-estrazione:hover{
-    background-color: #fed382;
+    background-color: #fecb6d;
 }
 
+.btn-estrazione:disabled{
+    background-color: #a0a09e;
+}
+#btn-estrazione:active{
+    background-color: #ffe4b3;
+}
+#btn-estrazione:focus-visible{
+    background-color: #fbe2b2;
+}
 
 
 .btn-reset{
@@ -108,4 +118,11 @@ box-shadow: 0px 0px 0px 1px white;
 
 .btn-reset:hover{
     background-color:#c07ea0;
+}
+
+#btn-reset:active{
+    background-color: #ba94a8;
+}
+#btn-reset:focus-visible{
+    background-color: #ba94a8;
 }

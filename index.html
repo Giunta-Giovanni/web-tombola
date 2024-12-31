@@ -26,7 +26,7 @@
 
                     <!-- colonna da 1 a 5 -->
                     <div class="col number-box">
-                        <div class="number">1</div>
+                        <div class="number" id="1">1</div>
                         <div class="number">2</div>
                         <div class="number">3</div>
                         <div class="number">4</div>
@@ -197,7 +197,7 @@
                         <h5 class="py-2">Ultimo numero estratto</h5>
 
                         <!-- box per mostrare il numero -->
-                        <div class="drawn-number">35</div>
+                        <div class="drawn-number" id="numero-estratto"></div>
 
                      </div>
                      <!-- parte dei pulsanti -->
@@ -205,12 +205,12 @@
 
                         <!-- pulsante estrazione -->
                         <div>
-                            <button class="btn btn-primary btn-estrazione w-auto my-3" type="submit">Estrai</button>
+                            <button class="btn btn-primary btn-estrazione w-auto my-3" id="btn-estrazione" type="submit" onclick="estrazione()">Estrai</button>
                         </div>
 
                         <!-- pulsante reset -->
                         <div>
-                            <button class="btn btn-primary btn-reset" type="submit">Termina Gioco</button>
+                            <button class="btn btn-primary btn-reset" id="btn-reset" type="submit" onclick="reset()">Termina Gioco</button>
                         </div>
                      </div>
                 </div>
