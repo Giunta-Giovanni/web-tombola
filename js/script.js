@@ -103,9 +103,11 @@ function reset (){
     
     //cancello il valore mostrato sul numero estratto
     //output video 
-    document.getElementById('numero-estratto').innerHTML = '';
+    document.getElementById('numero-estratto').innerHTML = '<i class="fa-solid fa-snowflake"></i>';
 
     document.getElementById('btn-reset').disabled=true;
+
+    alert ('TOMBOLA!');
     
 
  }
