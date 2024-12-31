@@ -120,6 +120,11 @@ box-shadow: 0px 0px 0px 1px white;
     background-color:#c07ea0;
 }
 
+.btn-reset:disabled{
+    background-color:#c08da8;
+    border: 1px solid black
+}
+
 #btn-reset:active{
     background-color: #ba94a8;
 }

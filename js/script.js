@@ -1,4 +1,4 @@
-// 2️⃣ **Estrazione dei numeri**
+// **Estrazione dei numeri**
 
 // Al click sul tasto Estrai verrà estratto un numero a caso dall’array dei numeri disponibili. Questo numero andrà  mostrato e la casella corrispondente verrà colorata in modo da segnalarne l’estrazione. Non dimenticate di rimuovere il numero estratto dalla lista dei numeri estraibili per evitare doppioni!!
 
@@ -8,8 +8,15 @@
 // e lo stampiamo nel console log e successivamente a video
 // quanto esce il numero si colora anche la casella del numero sul tabellone
 
-// creare l'array di dimensione 90 ok
-const N = 4
+// Il tasto “Termina gioco” non può essere cliccato prima che vengano estratti 15 numeri *(ogni cartella della tombola è composta da 15 numeri pertanto nessuno può vincere prima che ne vengano estratti almeno 15)
+
+// **Fine Gioco**
+// Il gioco finisce automaticamente quando vengono estratti tutti i numeri o se si clicca sul tasto “Termina Gioco”.
+
+
+
+// creare l'array di dimensione 90 
+const N = 90
 const numeriOriginali = [N]
 
 // e gli assegnamo i valori da 1 a 90 con il ciclo for
@@ -24,6 +31,12 @@ let numeri = [...numeriOriginali];
 
 // creo la funzione random
 function estrazione() {
+// se il numero è minori di 15 il tasto è disabilitato
+if(numeri.length === (N - 14)){
+        // cambia lo stato del tasto disabled
+        document.getElementById('btn-reset').disabled=false;        
+}
+
     if (numeri.length > 0) {
 
         // generazione dell'indice casuale
@@ -59,9 +72,11 @@ function estrazione() {
         numeri.splice(randomIndex,1)
         console.log("numeri rimasti da estrarre:",numeri.length);
 
-        // altrimenti
+        // altrimenti il gioco finisce
     } else {
-        document.getElementById('btn-estrazione').disabled=true;
+        // document.getElementById('btn-estrazione').disabled=true;
+        alert ('Gioco finito')
+        reset()
     }
 
 }
@@ -89,6 +104,9 @@ function reset (){
     //cancello il valore mostrato sul numero estratto
     //output video 
     document.getElementById('numero-estratto').innerHTML = '';
+
+    document.getElementById('btn-reset').disabled=true;
+    
 
  }
     
