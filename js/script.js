@@ -132,9 +132,9 @@ player.addEventListener("keypress", function(event) {
         // Mostra il valore in console o aggiorna un elemento HTML
         console.log("Numero di giocatori:", valore);
 
-        // Esempio: Aggiorna un elemento HTML con il valore
-        let display = document.getElementById("valore");
-        display.textContent = "Numero di giocatori: " + valore;
+        // // Esempio: Aggiorna un elemento HTML con il valore
+        // let display = document.getElementById("valore");
+        // display.textContent = "Numero di giocatori: " + valore;
     }
 });
 
