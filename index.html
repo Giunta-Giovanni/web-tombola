@@ -189,32 +189,50 @@
             </div>
             <!-- parte destra con controllo comandi -->
             <div class="col">
-            <!-- riga di divisione estrazione e pulsanit -->
+                
+                <!-- riga di divisione estrazione e pulsanti -->
                 <div class="row row-cols-1">
 
                     <!-- parte di estrazione -->
-                    <div class="col border-bottom border-light-subtle border-2">
+                    <div class="col">
                         <h5 class="py-2">Ultimo numero estratto</h5>
 
                         <!-- box per mostrare il numero -->
-                        <div class="drawn-number" id="numero-estratto"><i class="fa-solid fa-snowflake"></i></div>
+                        <div class="drawn-number" id="numero-estratto">
+                            <i class="fa-solid fa-snowflake"></i>
+                        </div>
 
                      </div>
+
                      <!-- parte dei pulsanti -->
-                     <div class="col justify-content-center">
+                     <div class="col border-top border-bottom border-light-subtle border-2 py-3 justify-content-center">
 
                         <!-- pulsante estrazione -->
                         <div>
-                            <button class="btn btn-primary btn-estrazione w-auto my-3" id="btn-estrazione" type="submit" onclick="estrazione()">Estrai</button>
+                            <button class="btn btn-primary btn-estrazione w-auto mb-3" id="btn-estrazione" type="submit" onclick="estrazione()">Estrai</button>
                         </div>
 
                         <!-- pulsante reset -->
                         <div>
                             <button class="btn btn-primary btn-reset" id="btn-reset" type="submit" onclick="reset()" disabled>Termina Gioco</button>
                         </div>
-                     </div>
-                </div>
-                
+                    </div>
+
+                    <!-- Selezione numero di Giocatori-->
+
+                    <!-- colonna input per inserimento numero di giocatori -->
+                    <div class="col-12 pt-3 ">
+                        <div class="input-group ">
+                            <!--icona -->
+                            <span class="input-group-text d-none d-xl-block" id="basic-addon3">
+                                <i class="fa-solid fa-users mx-2"></i> 
+                            </span>
+
+                            <!-- input -->
+                            <input type="number" class="form-control" id="inp-player" name="playerNumber" placeholder="Numero di giocatori" aria-describedby="basic-addon3 basic-addon4">
+                        </div>
+                    </div>
+                </div>              
             </div>
         </div>
     </div>

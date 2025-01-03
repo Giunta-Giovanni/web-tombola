@@ -131,3 +131,22 @@ box-shadow: 0px 0px 0px 1px white;
 #btn-reset:focus-visible{
     background-color: #ba94a8;
 }
+
+.btn-player{
+    background-color: #f6a102;
+    border:1px solid black;
+    box-shadow: 0px 0px 0px 1px white;
+}
+.btn-player:hover{
+    background-color: #fecb6d;
+}
+
+.btn-player:disabled{
+    background-color: #a0a09e;
+}
+#btn-player:active{
+    background-color: #ffe4b3;
+}
+#btn-player:focus-visible{
+    background-color: #fbe2b2;
+}

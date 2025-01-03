@@ -108,9 +108,37 @@ function reset (){
     document.getElementById('btn-reset').disabled=true;
 
     alert ('TOMBOLA!');
-    
-
  }
-    
+
+// Assicurati che la casella sia vuota al caricamento della pagina
+window.addEventListener("load", function () {
+    let player = document.getElementById("inp-player");
+    player.value = ""; // Imposta l'input su vuoto
+});
+// Richiamo il dato dell'input player
+let player = document.getElementById("inp-player");
 
 
+// Esegui l'azione quando l'utente preme un tasto
+player.addEventListener("keypress", function(event) {
+    // Verifica se l'utente ha premuto il tasto "Enter"
+    if (event.key === "Enter") {
+        // Cancella le azioni di default, se necessario
+        event.preventDefault();
+
+        // Recupera il valore dall'input
+        let valore = player.value;
+
+        // Mostra il valore in console o aggiorna un elemento HTML
+        console.log("Numero di giocatori:", valore);
+
+        // Esempio: Aggiorna un elemento HTML con il valore
+        let display = document.getElementById("valore");
+        display.textContent = "Numero di giocatori: " + valore;
+    }
+});
+
+
+
+
+   
