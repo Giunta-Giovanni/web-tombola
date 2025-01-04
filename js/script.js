@@ -131,14 +131,21 @@ player.addEventListener("keypress", function(event) {
 
         // Mostra il valore in console o aggiorna un elemento HTML
         console.log("Numero di giocatori:", valore);
+        
+        // Converti il valore a numero (nel caso l'utente inserisca una stringa)
+        let numGiocatori = parseInt(valore);
 
-        // // Esempio: Aggiorna un elemento HTML con il valore
-        // let display = document.getElementById("valore");
-        // display.textContent = "Numero di giocatori: " + valore;
+            if (numGiocatori > 0) {
+                let link = "file:///Users/giovannigiunta/Documents/Boolean/esercizi/web-tombola/Scheda%20di%20gioco/schedadigiocogpt.html"
+            
+            // Apri il link 'numGiocatori' volte
+            for (let i = 0; i < numGiocatori; i++) {
+                window.open(link, '_blank');  // '_blank' apre in una nuova finestra 
+            }
+        }else {
+            alert("Per favore inserisci un numero positivo di giocatori.");
+        }
     }
+
 });
 
-
-
-
-   

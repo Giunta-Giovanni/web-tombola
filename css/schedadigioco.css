@@ -1,0 +1,59 @@
+/* 
+font particular 
+    font-family: "Gochi Hand", serif;
+    font-weight: 400;
+    font-style: normal;   
+ */
+
+/* BOOTSTRAP DEBUG */
+/* [class^='container'] {
+    border: 1px dashed black;
+    background-color: lightblue;
+    min-height: 80vh;
+} */
+/* 
+[class^='row'] {
+    border: 1px dashed red;
+}  */
+
+/* [class^='col'] {
+    border: 1px solid grey;
+    background-color: aqua;
+    height: 100px;
+}  */
+
+/* general settings */
+body{
+    background-color: #5218a4;
+}
+h1{
+    font-family: "Gochi Hand", serif;
+    padding: 10px;
+    font-size: 80px;
+    color: rgb(0, 0, 0);
+}
+
+.titolo{
+    border: 1px solid black;
+}
+
+
+/* cartelle */
+
+.cartella{
+    background-color: white;
+}
+
+.casella{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    border: 1px solid black;
+    margin: 0;
+
+}
