@@ -64,3 +64,4 @@ function visualizzaCartella(cartella) {
 // Genera e visualizza la cartella
 const cartella = generaCartella();
 visualizzaCartella(cartella);
+
