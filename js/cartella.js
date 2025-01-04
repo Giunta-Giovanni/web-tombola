@@ -9,7 +9,7 @@
 // funzione che restituisce un numero casuale e lo rimuove dal suo array
 function shuffle(arr) {
     // Seleziono un indice casuale
-    let randomIndex = Math.floor(Math.random() * arr.lenght)
+    let randomIndex = Math.floor(Math.random() * arr.length)
     // dall'indece leggo il suo numero
     let randomNumber = arr[randomIndex];
 
@@ -55,6 +55,57 @@ console.log('array originale cinquanta', cinquanta);
 console.log('array originale sessanta', sessanta);
 console.log('array originale settanta', settanta);
 console.log('array originale ottanta', ottanta);
+
+// applichiamo la funzione di shuffle a tutti gli array
+
+for (let i = 0; i < 3; i++) {
+    const randomUno = shuffle(uno);
+    console.log("Numero casuale dell'array uno", randomUno); // Stampa i numeri casuali
+}
+for (let i = 0; i < 3; i++) {
+    const randomDieci = shuffle(dieci);
+    console.log("Numero casuale dell'array dieci", randomDieci); // Stampa i numeri casuali
+}
+for (let i = 0; i < 3; i++) {
+    const randomVenti = shuffle(venti);
+    console.log("Numero casuale dell'array venti", randomVenti); // Stampa i numeri casuali
+}
+for (let i = 0; i < 3; i++) {
+    const randomTrenta = shuffle(trenta);
+    console.log("Numero casuale dell'array trenta", randomTrenta); // Stampa i numeri casuali
+}
+for (let i = 0; i < 3; i++) {
+    const randomQuaranta = shuffle(quaranta);
+    console.log("Numero casuale dell'array trenta", randomQuaranta); // Stampa i numeri casuali
+}
+for (let i = 0; i < 3; i++) {
+    const randomCinquanta = shuffle(cinquanta);
+    console.log("Numero casuale dell'array cinquanta", randomCinquanta); // Stampa i numeri casuali
+}
+for (let i = 0; i < 3; i++) {
+    const randomSessanta = shuffle(sessanta);
+    console.log("Numero casuale dell'array sessanta", randomSessanta); // Stampa i numeri casuali
+}
+for (let i = 0; i < 3; i++) {
+    const randomSettanta = shuffle(settanta);
+    console.log("Numero casuale dell'array sessanta", randomSettanta); // Stampa i numeri casuali
+}
+for (let i = 0; i < 3; i++) {
+    const randomOttanta = shuffle(ottanta);
+    console.log("Numero casuale dell'array sessanta", randomOttanta); // Stampa i numeri casuali
+}
+
+// stampiamo gli array modificati
+console.log('Array uno aggiornato:', uno);
+console.log('Array dieci aggiornato:', dieci);
+console.log('Array venti aggiornato:', venti);
+console.log('Array trenta aggiornato:', trenta);
+console.log('Array quaranta aggiornato:', quaranta);
+console.log('Array cinquanta aggiornato:', cinquanta);
+console.log('Array sessanta aggiornato:', sessanta);
+console.log('Array settanta aggiornato:', settanta);
+console.log('Array ottanta aggiornato:', ottanta);
+
 
 
 
