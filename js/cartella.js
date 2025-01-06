@@ -216,7 +216,28 @@ rigaDue.forEach(number => remove(number));
 rigaTre.forEach(number => remove(number));
 
 
+    // Ottieni tutte le caselle con la classe "casella"
+    const caselle = document.getElementsByClassName("casella");
 
+    // Itera su tutte le caselle e aggiungi l'evento di clic
+    for (let i = 0; i < caselle.length; i++) {
+        caselle[i].addEventListener("click", function() {
+
+          // Verifica se la casella è già colorata
+          if (this.style.backgroundColor === "green") {
+            // Ritorna al colore originale
+            this.style.backgroundColor = "white";
+            this.style.color = "black";
+          } else {
+            // Colora la casella
+            this.style.backgroundColor = "green";
+            this.style.color = "white";
+          }
+        });
+      }
+      
+
+    
 
 
 
