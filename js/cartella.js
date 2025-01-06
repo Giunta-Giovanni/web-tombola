@@ -32,6 +32,17 @@ function createArray(start, end) {
     return arr;
 }
 
+// creare la funzione di rimozione
+
+function remove(number) {
+    const allDivs = document.querySelectorAll('.casella');
+    allDivs.forEach((div) => {
+        if (parseInt(div.innerText) === number) {
+            div.innerText = ''; // Svuota il testo all'interno del div
+        }
+    });
+}
+
 // creiamo gli array
 
 const uno = createArray (1, 9);         // da 1 a 9
@@ -43,17 +54,6 @@ const cinquanta = createArray (50, 59); // da 50 a 59
 const sessanta = createArray (60, 69);  // da 60 a 69
 const settanta = createArray (70, 79);  // da 70 a 79
 const ottanta = createArray (80, 90);   // da 80 a 89
-
-// // stampiamo gli array
-// console.log('array originale uno', uno);
-// console.log('array originale dieci', dieci);
-// console.log('array originale venti', venti);
-// console.log('array originale trenta', trenta);
-// console.log('array originale quaranta', quaranta);
-// console.log('array originale cinquanta', cinquanta);
-// console.log('array originale sessanta', sessanta);
-// console.log('array originale settanta', settanta);
-// console.log('array originale ottanta', ottanta);
 
 // richiamo le 9 colonne del html
 const colonnaUno = document.getElementById('1-9'); 
@@ -67,7 +67,7 @@ const colonnaSettanta = document.getElementById('70-79');
 const colonnaOttanta = document.getElementById('80-90'); 
 
 // array di salvataggio dei numeri casuali scelti
-const allShuffleNumber = [];
+let allShuffleNumber = [];
 
 // applichiamo la funzione di shuffle a tutti gli array
 for (let i = 0; i < 3; i++) {
@@ -78,7 +78,6 @@ for (let i = 0; i < 3; i++) {
     colonnaUno.appendChild(newDiv); // Aggiungo il div su html
     allShuffleNumber.push(randomUno); // salva il numero nell'array completa
 
-    // console.log("Numero casuale dell'array uno", randomUno); // Stampa i numeri casuali
 }
 for (let i = 0; i < 3; i++) {
     const randomDieci = shuffle(dieci);
@@ -88,7 +87,6 @@ for (let i = 0; i < 3; i++) {
     colonnaDieci.appendChild(newDiv); // Aggiungo il div su html
     allShuffleNumber.push(randomDieci); // salva il numero nell'array completa
 
-    // console.log("Numero casuale dell'array dieci", randomDieci); // Stampa i numeri casuali
 }
 for (let i = 0; i < 3; i++) {
     const randomVenti = shuffle(venti);
@@ -97,9 +95,8 @@ for (let i = 0; i < 3; i++) {
     newDiv.innerText = randomVenti; // Assegna del testo al div
     colonnaVenti.appendChild(newDiv); // Aggiungo il div su html
     allShuffleNumber.push(randomVenti); // salva il numero nell'array completa
-
-    // console.log("Numero casuale dell'array venti", randomVenti); // Stampa i numeri casuali
 }
+
 for (let i = 0; i < 3; i++) {
     const randomTrenta = shuffle(trenta);
     const newDiv = document.createElement('div'); // Crea un nuovo div
@@ -107,9 +104,8 @@ for (let i = 0; i < 3; i++) {
     newDiv.innerText = randomTrenta; // Assegna del testo al div
     colonnaTrenta.appendChild(newDiv); // Aggiungo il div su html
     allShuffleNumber.push(randomTrenta); // salva il numero nell'array completa
-
-    // console.log("Numero casuale dell'array trenta", randomTrenta); // Stampa i numeri casuali
 }
+
 for (let i = 0; i < 3; i++) {
     const randomQuaranta = shuffle(quaranta);
     const newDiv = document.createElement('div'); // Crea un nuovo div
@@ -117,9 +113,8 @@ for (let i = 0; i < 3; i++) {
     newDiv.innerText = randomQuaranta; // Assegna del testo al div
     colonnaQuaranta.appendChild(newDiv);// Aggiungo il div su html
     allShuffleNumber.push(randomQuaranta); // salva il numero nell'array completa
-
-    // console.log("Numero casuale dell'array trenta", randomQuaranta); // Stampa i numeri casuali
 }
+
 for (let i = 0; i < 3; i++) {
     const randomCinquanta = shuffle(cinquanta);
     const newDiv = document.createElement('div'); // Crea un nuovo div
@@ -127,9 +122,8 @@ for (let i = 0; i < 3; i++) {
     newDiv.innerText = randomCinquanta; // Assegna del testo al div
     colonnaCinquanta.appendChild(newDiv); // Aggiungo il div su html
     allShuffleNumber.push(randomCinquanta); // salva il numero nell'array completa
-
-    // console.log("Numero casuale dell'array cinquanta", randomCinquanta); // Stampa i numeri casuali
 }
+
 for (let i = 0; i < 3; i++) {
     const randomSessanta = shuffle(sessanta);
     const newDiv = document.createElement('div'); // Crea un nuovo div
@@ -137,9 +131,8 @@ for (let i = 0; i < 3; i++) {
     newDiv.innerText = randomSessanta; // Assegna del testo al div
     colonnaSessanta.appendChild(newDiv); // Aggiungo il div su html
     allShuffleNumber.push(randomSessanta); // salva il numero nell'array completa
-
-    // console.log("Numero casuale dell'array sessanta", randomSessanta); // Stampa i numeri casuali
 }
+
 for (let i = 0; i < 3; i++) {
     const randomSettanta = shuffle(settanta);
     const newDiv = document.createElement('div'); // Crea un nuovo div
@@ -147,9 +140,8 @@ for (let i = 0; i < 3; i++) {
     newDiv.innerText = randomSettanta; // Assegna del testo al div
     colonnaSettanta.appendChild(newDiv); // Aggiungo il div su html
     allShuffleNumber.push(randomSettanta); // salva il numero nell'array completa
-
-    // console.log("Numero casuale dell'array sessanta", randomSettanta); // Stampa i numeri casuali
 }
+
 for (let i = 0; i < 3; i++) {
     const randomOttanta = shuffle(ottanta);
     const newDiv = document.createElement('div'); // Crea un nuovo div
@@ -157,23 +149,10 @@ for (let i = 0; i < 3; i++) {
     newDiv.innerText = randomOttanta; // Assegna del testo al div
     colonnaOttanta.appendChild(newDiv);
     allShuffleNumber.push(randomOttanta); // salva il numero nell'array completa
-
-    // console.log("Numero casuale dell'array sessanta", randomOttanta); // Stampa i numeri casuali
 }
 
-// stampiamo gli array modificati
-// console.log('Array uno aggiornato:', uno);
-// console.log('Array dieci aggiornato:', dieci);
-// console.log('Array venti aggiornato:', venti);
-// console.log('Array trenta aggiornato:', trenta);
-// console.log('Array quaranta aggiornato:', quaranta);
-// console.log('Array cinquanta aggiornato:', cinquanta);
-// console.log('Array sessanta aggiornato:', sessanta);
-// console.log('Array settanta aggiornato:', settanta);
-// console.log('Array ottanta aggiornato:', ottanta);
-
 // stampiamo allShuffleNumber aggiornato con tutti i valori
-console.log('i numeri casuali sono:', allShuffleNumber);
+console.log('i 27 numeri casuali sono:', allShuffleNumber);
 
 // mi creo le righe della cartella di gioco
 const rigaUno = [];
@@ -199,13 +178,9 @@ for(let i = 2; i < allShuffleNumber.length; i = i + 3){
 }
 
 
-// stampo i valori delle righe
-console.log('riga uno originale', rigaUno);
-console.log('riga due originale', rigaDue);
-console.log('riga tre originale', rigaTre);
 
 // creo un ciclo per eliminare casualmente 4 di 9 caselle della riga
-for (let i = 0; i < 4; i++){
+for (let i = 0; i < 5; i++){
 
     // Seleziono un indice casuale
     let randomIndex = Math.floor(Math.random() * rigaUno.length)
@@ -213,7 +188,7 @@ for (let i = 0; i < 4; i++){
     let randomNumber = rigaUno[randomIndex];
     rigaUno.splice(randomIndex, 1);
 }
-for (let i = 0; i < 4; i++){
+for (let i = 0; i < 5; i++){
 
     // Seleziono un indice casuale
     let randomIndex = Math.floor(Math.random() * rigaDue.length)
@@ -221,7 +196,7 @@ for (let i = 0; i < 4; i++){
     let randomNumber = rigaDue[randomIndex];
     rigaDue.splice(randomIndex, 1);
 }
-for (let i = 0; i < 4; i++){
+for (let i = 0; i < 5; i++){
     // Seleziono un indice casuale
     let randomIndex = Math.floor(Math.random() * rigaTre.length)
     // dall'indice leggo il suo numero
@@ -230,13 +205,18 @@ for (let i = 0; i < 4; i++){
 }
 
 
-// stampo i valori delle righe aggiornate
-console.log('riga uno aggiornata', rigaUno);
-console.log('riga due aggiornata', rigaDue);
-console.log('riga tre aggiornata', rigaTre);
+// stampo i valori delle righe
+allShuffleNumber = [...rigaUno, ...rigaDue, ...rigaTre];
+console.log('i 15 numeri scelti sono:', allShuffleNumber);
 
-// creare la rimozione
-// se il valore randomico delle righe è uguale a quello dei random delle colonne rimuovilo dal div
+
+// Nascondiamo i numeri nelle colonne che corrispondono ai numeri nelle righe
+rigaUno.forEach(number => remove(number));
+rigaDue.forEach(number => remove(number));
+rigaTre.forEach(number => remove(number));
+
+
+
 
 
 
