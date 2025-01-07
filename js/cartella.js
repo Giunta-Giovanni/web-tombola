@@ -2,9 +2,7 @@
 // 🌟 
 // **Bonus (cartelle)**
 
-// Perché non provare anche a generare le cartelle per giocare? Potreste inserire un form che chiede il numero dei giocatori e far generare delle cartelle di 15 numeri, controllando però che siano tutte diverse tra loro.
-
-
+/*********************  FUNZIONI  *********************/
 // funzione che restituisce un numero casuale e lo rimuove dal suo array
 function shuffle(arr) {
     // Seleziono un indice casuale
@@ -21,19 +19,23 @@ function shuffle(arr) {
 
 // funzione per creare un array di numeri da un intervallo
 function createArray(start, end) {
-
-
     const arr = [];    // inizializziamo la variabile come vuota
     for (let i = start; i <= end; i++){ //inizia a start e finisce ad end, con incremento dell'indice pari a 1
         arr.push(i); //aggiungi +1
     }
-
     // ritornami il valore dell'array
     return arr;
 }
 
-// creare la funzione di rimozione
+// funzione di scelta di 4 numeri scelti casualmente e rimossi dalla riga
+function removeRandomNumbers(row, count) {
+    for (let i = 0; i < count; i++) {
+        let randomIndex = Math.floor(Math.random() * row.length);
+        row.splice(randomIndex, 1);
+    }
+}
 
+// creare la funzione di rimozione dei numeri dai div
 function remove(number) {
     const allDivs = document.querySelectorAll('.casella');
     allDivs.forEach((div) => {
@@ -42,9 +44,9 @@ function remove(number) {
         }
     });
 }
+/************************************************+*********************/
 
 // creiamo gli array
-
 const uno = createArray (1, 9);         // da 1 a 9
 const dieci = createArray (10, 19);     // da 10 a 19
 const venti = createArray (20, 29);     // da 20 a 29
@@ -109,48 +111,24 @@ for(let i = 2; i < allShuffleNumber.length; i = i + 3){
     rigaTre.push(allShuffleNumber[i]);
 }
 
-
-
-// creo un ciclo per eliminare casualmente 4 di 9 caselle della riga
-for (let i = 0; i < 5; i++){
-
-    // Seleziono un indice casuale
-    let randomIndex = Math.floor(Math.random() * rigaUno.length)
-    // dall'indice leggo il suo numero
-    let randomNumber = rigaUno[randomIndex];
-    rigaUno.splice(randomIndex, 1);
-}
-for (let i = 0; i < 5; i++){
-
-    // Seleziono un indice casuale
-    let randomIndex = Math.floor(Math.random() * rigaDue.length)
-    // dall'indice leggo il suo numero
-    let randomNumber = rigaDue[randomIndex];
-    rigaDue.splice(randomIndex, 1);
-}
-for (let i = 0; i < 5; i++){
-    // Seleziono un indice casuale
-    let randomIndex = Math.floor(Math.random() * rigaTre.length)
-    // dall'indice leggo il suo numero
-    let randomNumber = rigaTre[randomIndex];
-    rigaTre.splice(randomIndex, 1);
-}
-
+// utilizzo la funzione di rimozione sulle righe 
+removeRandomNumbers(rigaUno, 5);    //(riga, numeri da mantenere sulla riga)
+removeRandomNumbers(rigaDue, 5);    //(riga, numeri da mantenere sulla riga)
+removeRandomNumbers(rigaTre, 5);    //(riga, numeri da mantenere sulla riga)
 
 // stampo i valori delle righe
 allShuffleNumber = [...rigaUno, ...rigaDue, ...rigaTre];
 console.log('i 15 numeri scelti sono:', allShuffleNumber);
-
 
 // Nascondiamo i numeri nelle colonne che corrispondono ai numeri nelle righe
 rigaUno.forEach(number => remove(number));
 rigaDue.forEach(number => remove(number));
 rigaTre.forEach(number => remove(number));
 
-
     // Ottieni tutte le caselle con la classe "casella"
     const caselle = document.getElementsByClassName("casella");
-
+    console.log('SONO LE CASELLE',caselle);
+    
     // Itera su tutte le caselle e aggiungi l'evento di clic
     for (let i = 0; i < caselle.length; i++) {
         // se la casella è vuota 
@@ -170,84 +148,6 @@ rigaTre.forEach(number => remove(number));
               this.style.color = "white";
             }
           });
+          
         };
     }
-
-    // crea degli alert quando si fa ambo, quaterna, cinquina e tombola
-
-    // se sono colorate due numeri della riga 1,2,3 allora abbiamo fatto ambo
-    // se sono colorati quattro numeri della riga 1,2,3 allora abbiamo fatto quaterna
-    // se tutta la riga 1,2,3 è colorata allora abbiamo fatto cinquina
-    // se tutti i numeri della cartella sono colorati abbiamo fatto tombola
-
-
-
-
-
-
-
-
-
-    //------------------------SEMPLIFICAZIONE DA RIGA 48 A 152
-
-    // const colonne = [
-    //     { id: '1-9', array: uno },
-    //     { id: '10-19', array: dieci },
-    //     { id: '20-29', array: venti },
-    //     { id: '30-39', array: trenta },
-    //     { id: '40-49', array: quaranta },
-    //     { id: '50-59', array: cinquanta },
-    //     { id: '60-69', array: sessanta },
-    //     { id: '70-79', array: settanta },
-    //     { id: '80-90', array: ottanta }
-    //   ];
-      
-    //   colonne.forEach(({ id, array }) => {
-    //     const colonna = document.getElementById(id);
-    //     for (let i = 0; i < 3; i++) {
-    //       const randomNumber = shuffle(array);
-    //       const newDiv = document.createElement('div');
-    //       newDiv.className = 'casella';
-    //       newDiv.innerText = randomNumber;
-    //       colonna.appendChild(newDiv);
-    //       allShuffleNumber.push(randomNumber);
-    //     }
-    //   });
-
-
-
-// Controlla lo stato di tutte le righe
-// function checkGame() {
-//     checkStatus(rigaUno);
-//     checkStatus(rigaDue);
-//     checkStatus(rigaTre);
-  
-//     // Controlla tombola
-//     const allColored = allShuffleNumber.every(number => {
-//       const div = [...document.querySelectorAll('.casella')].find(
-//         casella => parseInt(casella.innerText) === number && casella.style.backgroundColor === 'green'
-//       );
-//       return div;
-//     });
-  
-//     if (allColored) alert('Tombola!');
-//   }
-
-
-// const caselle = document.querySelectorAll('.casella');
-// caselle.forEach(casella => {
-//     if (casella.innerText === '') {
-//       casella.classList.add('disabled');
-//     } else {
-//       casella.addEventListener('click', function () {
-//         this.style.backgroundColor = this.style.backgroundColor === 'green' ? 'white' : 'green';
-//         this.style.color = this.style.backgroundColor === 'green' ? 'white' : 'black';
-//         checkGame();
-//       });
-//     }
-//   });
-
-
-
-
-
