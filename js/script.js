@@ -13,8 +13,6 @@
 // **Fine Gioco**
 // Il gioco finisce automaticamente quando vengono estratti tutti i numeri o se si clicca sul tasto “Termina Gioco”.
 
-
-
 // creare l'array di dimensione 90 
 const N = 90
 const numeriOriginali = [N]
@@ -78,9 +76,7 @@ if(numeri.length === (N - 14)){
         alert ('Gioco finito')
         reset()
     }
-
 }
-
 
 // creiamo la funzione che resetta il gioco in qualsiasi momento
 function reset (){
