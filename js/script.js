@@ -136,7 +136,7 @@ player.addEventListener("keypress", function(event) {
         let numGiocatori = parseInt(valore);
 
             if (numGiocatori > 0) {
-                let link = "file:///Users/giovannigiunta/Documents/Boolean/esercizi/web-tombola/Scheda%20di%20gioco/schedadigiocogpt.html"
+                let link = ".//Scheda di gioco/schedadigioco.html"
             
             // Apri il link 'numGiocatori' volte
             for (let i = 0; i < numGiocatori; i++) {
