@@ -24,5 +24,3 @@ Se volete solo provare a giocare, senza però creare voi le cartelle, date un’
 
 
 
-
-Quando il gioco finisce, mostriamo una schermata che annuncia che un giocatore ha fatto Tombola!

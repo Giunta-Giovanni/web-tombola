@@ -55,101 +55,33 @@ const sessanta = createArray (60, 69);  // da 60 a 69
 const settanta = createArray (70, 79);  // da 70 a 79
 const ottanta = createArray (80, 90);   // da 80 a 89
 
-// richiamo le 9 colonne del html
-const colonnaUno = document.getElementById('1-9'); 
-const colonnaDieci = document.getElementById('10-19'); 
-const colonnaVenti = document.getElementById('20-29'); 
-const colonnaTrenta = document.getElementById('30-39'); 
-const colonnaQuaranta = document.getElementById('40-49'); 
-const colonnaCinquanta = document.getElementById('50-59'); 
-const colonnaSessanta = document.getElementById('60-69'); 
-const colonnaSettanta = document.getElementById('70-79'); 
-const colonnaOttanta = document.getElementById('80-90'); 
-
 // array di salvataggio dei numeri casuali scelti
 let allShuffleNumber = [];
 
 // applichiamo la funzione di shuffle a tutti gli array
-for (let i = 0; i < 3; i++) {
-    const randomUno = shuffle(uno);
-    const newDiv = document.createElement('div'); // Crea un nuovo div
-    newDiv.className = 'casella'; // Assegna una classe al div
-    newDiv.innerText = randomUno; // Assegna del testo al div
-    colonnaUno.appendChild(newDiv); // Aggiungo il div su html
-    allShuffleNumber.push(randomUno); // salva il numero nell'array completa
-
-}
-for (let i = 0; i < 3; i++) {
-    const randomDieci = shuffle(dieci);
-    const newDiv = document.createElement('div'); // Crea un nuovo div
-    newDiv.className = 'casella'; // Assegna una classe al div
-    newDiv.innerText = randomDieci; // Assegna del testo al div
-    colonnaDieci.appendChild(newDiv); // Aggiungo il div su html
-    allShuffleNumber.push(randomDieci); // salva il numero nell'array completa
-
-}
-for (let i = 0; i < 3; i++) {
-    const randomVenti = shuffle(venti);
-    const newDiv = document.createElement('div'); // Crea un nuovo div
-    newDiv.className = 'casella'; // Assegna una classe al div
-    newDiv.innerText = randomVenti; // Assegna del testo al div
-    colonnaVenti.appendChild(newDiv); // Aggiungo il div su html
-    allShuffleNumber.push(randomVenti); // salva il numero nell'array completa
-}
-
-for (let i = 0; i < 3; i++) {
-    const randomTrenta = shuffle(trenta);
-    const newDiv = document.createElement('div'); // Crea un nuovo div
-    newDiv.className = 'casella'; // Assegna una classe al div
-    newDiv.innerText = randomTrenta; // Assegna del testo al div
-    colonnaTrenta.appendChild(newDiv); // Aggiungo il div su html
-    allShuffleNumber.push(randomTrenta); // salva il numero nell'array completa
-}
-
-for (let i = 0; i < 3; i++) {
-    const randomQuaranta = shuffle(quaranta);
-    const newDiv = document.createElement('div'); // Crea un nuovo div
-    newDiv.className = 'casella'; // Assegna una classe al div
-    newDiv.innerText = randomQuaranta; // Assegna del testo al div
-    colonnaQuaranta.appendChild(newDiv);// Aggiungo il div su html
-    allShuffleNumber.push(randomQuaranta); // salva il numero nell'array completa
-}
-
-for (let i = 0; i < 3; i++) {
-    const randomCinquanta = shuffle(cinquanta);
-    const newDiv = document.createElement('div'); // Crea un nuovo div
-    newDiv.className = 'casella'; // Assegna una classe al div
-    newDiv.innerText = randomCinquanta; // Assegna del testo al div
-    colonnaCinquanta.appendChild(newDiv); // Aggiungo il div su html
-    allShuffleNumber.push(randomCinquanta); // salva il numero nell'array completa
-}
-
-for (let i = 0; i < 3; i++) {
-    const randomSessanta = shuffle(sessanta);
-    const newDiv = document.createElement('div'); // Crea un nuovo div
-    newDiv.className = 'casella'; // Assegna una classe al div
-    newDiv.innerText = randomSessanta; // Assegna del testo al div
-    colonnaSessanta.appendChild(newDiv); // Aggiungo il div su html
-    allShuffleNumber.push(randomSessanta); // salva il numero nell'array completa
-}
-
-for (let i = 0; i < 3; i++) {
-    const randomSettanta = shuffle(settanta);
-    const newDiv = document.createElement('div'); // Crea un nuovo div
-    newDiv.className = 'casella'; // Assegna una classe al div
-    newDiv.innerText = randomSettanta; // Assegna del testo al div
-    colonnaSettanta.appendChild(newDiv); // Aggiungo il div su html
-    allShuffleNumber.push(randomSettanta); // salva il numero nell'array completa
-}
-
-for (let i = 0; i < 3; i++) {
-    const randomOttanta = shuffle(ottanta);
-    const newDiv = document.createElement('div'); // Crea un nuovo div
-    newDiv.className = 'casella'; // Assegna una classe al div
-    newDiv.innerText = randomOttanta; // Assegna del testo al div
-    colonnaOttanta.appendChild(newDiv);
-    allShuffleNumber.push(randomOttanta); // salva il numero nell'array completa
-}
+const colonne = [
+    { id: '1-9', array: uno },
+    { id: '10-19', array: dieci },
+    { id: '20-29', array: venti },
+    { id: '30-39', array: trenta },
+    { id: '40-49', array: quaranta },
+    { id: '50-59', array: cinquanta },
+    { id: '60-69', array: sessanta },
+    { id: '70-79', array: settanta },
+    { id: '80-90', array: ottanta }
+  ];
+  
+  colonne.forEach(({ id, array }) => {
+    const colonna = document.getElementById(id);
+    for (let i = 0; i < 3; i++) {
+      const randomNumber = shuffle(array);
+      const newDiv = document.createElement('div');
+      newDiv.className = 'casella';
+      newDiv.innerText = randomNumber;
+      colonna.appendChild(newDiv);
+      allShuffleNumber.push(randomNumber);
+    }
+  });
 
 // stampiamo allShuffleNumber aggiornato con tutti i valori
 console.log('i 27 numeri casuali sono:', allShuffleNumber);
@@ -238,16 +170,82 @@ rigaTre.forEach(number => remove(number));
               this.style.color = "white";
             }
           });
-
         };
     }
 
+    // crea degli alert quando si fa ambo, quaterna, cinquina e tombola
+
+    // se sono colorate due numeri della riga 1,2,3 allora abbiamo fatto ambo
+    // se sono colorati quattro numeri della riga 1,2,3 allora abbiamo fatto quaterna
+    // se tutta la riga 1,2,3 è colorata allora abbiamo fatto cinquina
+    // se tutti i numeri della cartella sono colorati abbiamo fatto tombola
 
 
 
-    
 
-    
+
+
+
+
+
+    //------------------------SEMPLIFICAZIONE DA RIGA 48 A 152
+
+    // const colonne = [
+    //     { id: '1-9', array: uno },
+    //     { id: '10-19', array: dieci },
+    //     { id: '20-29', array: venti },
+    //     { id: '30-39', array: trenta },
+    //     { id: '40-49', array: quaranta },
+    //     { id: '50-59', array: cinquanta },
+    //     { id: '60-69', array: sessanta },
+    //     { id: '70-79', array: settanta },
+    //     { id: '80-90', array: ottanta }
+    //   ];
+      
+    //   colonne.forEach(({ id, array }) => {
+    //     const colonna = document.getElementById(id);
+    //     for (let i = 0; i < 3; i++) {
+    //       const randomNumber = shuffle(array);
+    //       const newDiv = document.createElement('div');
+    //       newDiv.className = 'casella';
+    //       newDiv.innerText = randomNumber;
+    //       colonna.appendChild(newDiv);
+    //       allShuffleNumber.push(randomNumber);
+    //     }
+    //   });
+
+
+
+// Controlla lo stato di tutte le righe
+// function checkGame() {
+//     checkStatus(rigaUno);
+//     checkStatus(rigaDue);
+//     checkStatus(rigaTre);
+  
+//     // Controlla tombola
+//     const allColored = allShuffleNumber.every(number => {
+//       const div = [...document.querySelectorAll('.casella')].find(
+//         casella => parseInt(casella.innerText) === number && casella.style.backgroundColor === 'green'
+//       );
+//       return div;
+//     });
+  
+//     if (allColored) alert('Tombola!');
+//   }
+
+
+// const caselle = document.querySelectorAll('.casella');
+// caselle.forEach(casella => {
+//     if (casella.innerText === '') {
+//       casella.classList.add('disabled');
+//     } else {
+//       casella.addEventListener('click', function () {
+//         this.style.backgroundColor = this.style.backgroundColor === 'green' ? 'white' : 'green';
+//         this.style.color = this.style.backgroundColor === 'green' ? 'white' : 'black';
+//         checkGame();
+//       });
+//     }
+//   });
 
 
 
