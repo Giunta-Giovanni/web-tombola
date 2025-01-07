@@ -56,4 +56,9 @@ h1{
     border: 1px solid black;
     margin: 0;
 }
+.casella.disabled{
+    background-color: #e0e0e0; /* Colore di sfondo per le caselle vuote */
+    cursor: not-allowed; /* Disabilita il cursore sulle caselle vuote */
+    opacity: 0.5; /* Aggiungi trasparenza per enfatizzare che sono disabilitate */
+}
 
